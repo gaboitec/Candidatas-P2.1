@@ -137,14 +137,11 @@ class ConcursoCandidatasApp:
 
         def guardar():
             try:
-                calif = Calificacion(
-                    entrada_jurado.get(),
+                self.concurso.registrar_calificacion(entrada_jurado.get(),
                     entrada_cod.get(),
                     entrada_cultura.get(),
                     entrada_proy.get(),
-                    entrada_ent.get()
-                )
-                self.concurso.registrar_calificacion(calif)
+                    entrada_ent.get())
                 self.info.config(text="Exito, Calificacion realizada!")
                 ventana_cal.destroy()
             except Exception as e:
