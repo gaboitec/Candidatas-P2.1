@@ -7,6 +7,6 @@ class Calificacion:
         self.entrevista = entrevista
 
     def promedio(self):
-        return (self.cultura + self.proyeccion + self.entrevista) / 3
+        return (int(self.cultura) + int(self.proyeccion) + int(self.entrevista)) / 3
 
 

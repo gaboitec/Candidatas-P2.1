@@ -8,7 +8,7 @@ class Candidata:
         self.calificaciones = []
 
 
-    def Calificacion(self, calificacion):
+    def agregar_calificacion(self, calificacion):
         self.calificaciones.append(calificacion)
 
 

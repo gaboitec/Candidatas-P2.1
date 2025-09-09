@@ -1,6 +1,4 @@
-import archivoCandidatas
-import archicoJurado
-import tkinter as tk
+from archivoCandidatas import Candidata
 from tkinter import messagebox
 
 
@@ -9,6 +7,7 @@ class Concurso:
         self.candidatas = {}
         self.jurados = {}
         self.calificaciones = []
+        self.cargar_datos()
 
     def agregar_candidata(self, candidata):
         self.candidatas[candidata.codigo] = candidata
@@ -45,11 +44,9 @@ class Concurso:
         return lista_candidatas
 
 
-
-
     def mostrar_ranking(self):
         ranking = self.ranking()
-        resultado = "Ranking"
+        resultado = "RANKING FINAL DE CANDIDATAS:\n\n"
         for i, candidata in enumerate(ranking, start=1):
             resultado += f"{i}. {candidata.nombre} - {candidata.puntaje_final():.2f}\n"
         if ranking:
@@ -66,7 +63,6 @@ class Concurso:
 
 
     def cargar_datos(self, archivo="concurso.txt"):
-        self.candidatas = {}
         try:
             with open(archivo, "r", encoding="utf-8") as f:
                 for linea in f:

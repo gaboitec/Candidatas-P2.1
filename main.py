@@ -2,7 +2,6 @@ import tkinter as tk
 from archivoConcurso import Concurso
 from archivoCandidatas import Candidata
 from archicoJurado import Jurado
-from archivoCalificacion import Calificacion
 
 class ConcursoCandidatasApp:
     def __init__(self):
@@ -71,7 +70,7 @@ class ConcursoCandidatasApp:
                     entrada_municipio.get()
                 )
                 self.concurso.agregar_candidata(candidata)
-                self.info.config(text="Exito, Inscripcion de candidata realizada!")
+                self.info.config(text="Exito, Inscripcion de candidata realizado!")
                 ventana_inscripcion.destroy()
             except Exception as e:
                 self.info.config(text=f"Error {e}")
@@ -103,7 +102,7 @@ class ConcursoCandidatasApp:
                     entrada_metodo.get()
                 )
                 self.concurso.agregar_jurado(jurado)
-                self.info.config(text="Exito, Registro de jurado realizada!")
+                self.info.config(text="Exito, Registro de jurado realizado!")
                 ventana_registro.destroy()
             except Exception as e:
                 self.info.config(text=f"Error {e}")
@@ -115,11 +114,11 @@ class ConcursoCandidatasApp:
         ventana_cal = tk.Toplevel(self.ventana)
         ventana_cal.title("Registrar Calificacion")
 
-        tk.Label(ventana_cal, text="Nombre").pack()
+        tk.Label(ventana_cal, text="Nombre del jurado").pack()
         entrada_jurado = tk.Entry(ventana_cal)
         entrada_jurado.pack()
 
-        tk.Label(ventana_cal, text="Codigo Candidata").pack()
+        tk.Label(ventana_cal, text="Codigo de la Candidata").pack()
         entrada_cod = tk.Entry(ventana_cal)
         entrada_cod.pack()
 
@@ -127,11 +126,11 @@ class ConcursoCandidatasApp:
         entrada_cultura = tk.Entry(ventana_cal)
         entrada_cultura.pack()
 
-        tk.Label(ventana_cal, text="Proyeccion (1-10").pack()
+        tk.Label(ventana_cal, text="Proyeccion (0-10").pack()
         entrada_proy = tk.Entry(ventana_cal)
         entrada_proy.pack()
 
-        tk.Label(ventana_cal, text="Entrevista (1-10)").pack()
+        tk.Label(ventana_cal, text="Entrevista (0-10)").pack()
         entrada_ent = tk.Entry(ventana_cal)
         entrada_ent.pack()
 
@@ -161,9 +160,7 @@ class ConcursoCandidatasApp:
         if not ranking:
             texto.insert(tk.END, "No hay candidatas calificadas aún.\n")
         else:
-            texto.insert(tk.END, "RANKING DE CANDIDATAS:\n\n")
-            for candidata in enumerate(ranking, start=1):
-                texto.insert(tk.END, f"{candidata}\n")
+            texto.insert(tk.END,ranking)
 
 if __name__ == "__main__":
     ConcursoCandidatasApp()
