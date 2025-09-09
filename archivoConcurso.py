@@ -71,7 +71,7 @@ class Concurso:
             with open(archivo, "r", encoding="utf-8") as f:
                 for linea in f:
                     codigo, nombre, edad, institucion, municipio, puntaje = linea.strip().split(":")
-                    candidata = candidata(codigo, nombre, int(edad), institucion, municipio)
+                    candidata = Candidata(codigo, nombre, int(edad), institucion, municipio)
                     self.candidatas[codigo] = candidata
         except FileNotFoundError:
             messagebox.showwarning("NO se enctro el archivo")

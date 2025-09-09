@@ -1,5 +1,8 @@
 import tkinter as tk
 from archivoConcurso import Concurso
+from archivoCandidatas import Candidata
+from archicoJurado import Jurado
+from archivoCalificacion import Calificacion
 
 class ConcursoCandidatasApp:
     def __init__(self):
